@@ -4,11 +4,16 @@
 package ch.zhaw.thin.upn;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static void main(String[] args) throws InterruptedException {
+        final PushdownAutomata pushdownAutomata = new PushdownAutomata();
+//        System.out.println(pushdownAutomata.calculate(false, "34+62+89+43+***")); //6664
+//        System.out.println(Strings.repeat("-", 20));
+        System.out.println(pushdownAutomata.calculate(true, "31+78+987+1214++7++++++")); //58
+//        System.out.println(Strings.repeat("-", 20));
+//        System.out.println(pushdownAutomata.calculate(false, "34+*")); //Invalid
+//        System.out.println(Strings.repeat("-", 20));
+//        System.out.println(pushdownAutomata.calculate(false, "8+9+7*2*")); //Invalid
+//        System.out.println(Strings.repeat("-", 20));
     }
 }
