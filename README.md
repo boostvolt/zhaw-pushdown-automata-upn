@@ -23,6 +23,7 @@ flowchart LR
 
 
 ## PDA UPN calculation
+![img_1.png](img_1.png)
 > **Note**: `Z` is a number, `O` is an operator
 
 ```mermaid
