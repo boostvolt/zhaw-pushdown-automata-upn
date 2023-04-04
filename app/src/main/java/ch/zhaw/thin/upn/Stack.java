@@ -1,5 +1,11 @@
 package ch.zhaw.thin.upn;
 
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.IntStream.iterate;
+
+import java.util.Objects;
+
 public class Stack {
 
     private static final int MAX_CHAR_LENGTH = 100;
@@ -33,21 +39,21 @@ public class Stack {
         return stack[position - offset];
     }
 
-    public boolean isEmpty() {
-        return position == 0 && stack[position].equals(FIRST_STACK_CHAR);
-    }
-
     public String getElementAtCurrentPosition() {
         return stack[position];
     }
 
+    public boolean containsOnlyResult() {
+        return stream(stack)
+            .filter(Objects::nonNull)
+            .filter(entry -> !FIRST_STACK_CHAR.equals(entry))
+            .count() == 1;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        for (int i = position; i >= 0 ; i--) {
-            sb.append(stack[i]);
-        }
-
-        return sb.toString();
+        return iterate(position, i -> i >= 0, i -> i - 1)
+            .mapToObj(i -> stack[i])
+            .collect(joining(" "));
     }
 }

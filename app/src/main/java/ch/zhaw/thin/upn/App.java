@@ -3,17 +3,39 @@
  */
 package ch.zhaw.thin.upn;
 
+import static com.google.common.base.Strings.repeat;
+
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
         final PushdownAutomata pushdownAutomata = new PushdownAutomata();
-//        System.out.println(pushdownAutomata.calculate(false, "34+62+89+43+***")); //6664
-//        System.out.println(Strings.repeat("-", 20));
-        System.out.println(pushdownAutomata.calculate(true, "31+78+987+1214++7++++++")); //58
-//        System.out.println(Strings.repeat("-", 20));
-//        System.out.println(pushdownAutomata.calculate(false, "34+*")); //Invalid
-//        System.out.println(Strings.repeat("-", 20));
-//        System.out.println(pushdownAutomata.calculate(false, "8+9+7*2*")); //Invalid
-//        System.out.println(Strings.repeat("-", 20));
+        pushdownAutomata.calculate(true, "34+62+89+43+***"); //6664
+        printSeparator();
+        pushdownAutomata.calculate(true, "31+78+987+1214++7++++++"); //58
+        printSeparator();
+        pushdownAutomata.calculate(true, "9"); // 9
+        printSeparator();
+        pushdownAutomata.calculate(true, "11+"); // 2
+        printSeparator();
+        pushdownAutomata.calculate(true, "11+11++"); // 4
+        printSeparator();
+        pushdownAutomata.calculate(true, "111++"); // 3
+        printSeparator();
+        pushdownAutomata.calculate(true, "1111*++"); // 3
+        printSeparator();
+        pushdownAutomata.calculate(true, "34+*"); //Invalid
+        printSeparator();
+        pushdownAutomata.calculate(true, "8+9+7*2*"); //Invalid
+        printSeparator();
+        pushdownAutomata.calculate(true, "11+11+"); //Invalid
+        printSeparator();
+        pushdownAutomata.calculate(true, "1*1"); //Invalid
+        printSeparator();
+        pushdownAutomata.calculate(true, "+11"); //Invalid
     }
+
+    private static void printSeparator() {
+        System.out.println(repeat("-", 40));
+    }
+
 }
