@@ -7,6 +7,8 @@ calculation is `28`.
 You can imagine that the numbers are written one after the other into the cellar or onto the stack. If an operator is read in (or comes as input), the two uppermost numbers are taken from the stack, calculated with each other and the result is put back on the stack.
 
 ## PDA UPN validation
+> **Note**: `Z` is a number, `O` is an operator
+
 ```mermaid
 flowchart LR
     START[ ] -- Start --> Q0((QO))
@@ -20,6 +22,8 @@ flowchart LR
 
 
 ## PDA UPN calculation
+> **Note**: `Z` is a number, `O` is an operator
+
 ```mermaid
 flowchart LR
     START[ ] -- Start --> Q0(((Q0)))
